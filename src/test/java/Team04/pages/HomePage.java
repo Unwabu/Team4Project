@@ -16,66 +16,66 @@ public class HomePage {
 
 
     @FindBy(id = "search")
-     WebElement searchBox;
+    public WebElement searchBox;
     @FindBy(xpath = "//button[.='Join']")
-     WebElement joinButton;
+    public WebElement joinButton;
     @FindBy(linkText = "Become a Seller")
-    WebElement becomeaSellerButton;
+    public WebElement becomeaSellerButton;
     @FindBy(className = "hidden ltr:ml-10 ltr:mr-auto rtl:mr-10 rtl:ml-auto xl:block")
-     WebElement categoryDropDownButton;
+    public  WebElement categoryDropDownButton;
     @FindBy(xpath = "//button[text()='Search']")
-     WebElement SearchButton;
+    public  WebElement SearchButton;
     @FindBy(className = "text-sm font-normal text-m")
-     WebElement ilkFiyat;
+    public WebElement ilkFiyat;
     @FindBy(className = "text-2xl f")
-     WebElement indirimliFiyat;
+    public  WebElement indirimliFiyat;
     @FindBy(className = "rounded-full bg-y")
-    WebElement indirimOrani;
+    public WebElement indirimOrani;
     @FindBy(className = "mb-3 w-full lg:mb-0 lg:max-w-[400px]")
-     WebElement addCartButton; // ürün ekleme butonu
+    public WebElement addCartButton; // ürün ekleme butonu
     @FindBy(className = "flex ltr:ml-2 rtl:mr-2")
-     WebElement itemCartButton; // sepet
+    public  WebElement itemCartButton; // sepet
     @FindBy(xpath = "//span[.='plus']")
-  WebElement plusButton; // + arttırma tuşu ...ürün ekleme yapılmalı
+    public WebElement plusButton; // + arttırma tuşu ...ürün ekleme yapılmalı
     @FindBy(tagName = "h4")
-     WebElement noProductFoundTextInCart;  // ürün bulunamadı yazısı
+    public  WebElement noProductFoundTextInCart;  // ürün bulunamadı yazısı
     @FindBy(linkText = "Shops")
-  WebElement shops;
+    public WebElement shops;
     //sol üst köşedeki butonlar
     @FindBy(xpath = "(//span[@class='flex h-5 w-5 items-center justify-center'])[4]")
-     WebElement bagsButton;
+    public  WebElement bagsButton;
     @FindBy(xpath = "(//span[@class='flex h-5 w-5 items-center justify-center'])[1]")
-     WebElement groceryButton;
+    public  WebElement groceryButton;
     @FindBy(xpath = "(//span[@class='flex h-5 w-5 items-center justify-center'])[2]")
-     WebElement bakeryButton;
+    public   WebElement bakeryButton;
     @FindBy(xpath = "(//span[@class='flex h-5 w-5 items-center justify-center'])[3]")
-     WebElement makeupButton;
+    public  WebElement makeupButton;
     @FindBy(xpath = "(//span[@class='flex h-5 w-5 items-center justify-center'])[5]")
-     WebElement clothingButton;
+    public  WebElement clothingButton;
     @FindBy(xpath = "(//span[@class='flex h-5 w-5 items-center justify-center'])[6]")
-     WebElement furnitureButton;
+    public  WebElement furnitureButton;
     @FindBy(xpath = "(//span[@class='flex h-5 w-5 items-center justify-center'])[7]")
-     WebElement dailyNeedsButton;
+    public  WebElement dailyNeedsButton;
     @FindBy(xpath = "(//span[@class='flex h-5 w-5 items-center justify-center'])[8]")
-     WebElement booksButton;
+    public  WebElement booksButton;
     @FindBy(linkText = "Offers")
-     WebElement offers;
+    public  WebElement offers;
     @FindBy(linkText = "FAQ")
-    WebElement FAQ;
+    public WebElement faq;
     @FindBy(linkText = "Contact")
-     WebElement contact;
+    public  WebElement contact;
     @FindBy(xpath = "/*[. ='Points']")
-     WebElement points;
+    public  WebElement points;
     @FindBy(xpath = "/*[. ='Profile']")
-     WebElement profile;
+    public  WebElement profile;
     @FindBy(xpath = "/*[. ='My Orders']")
-    WebElement myOrders;
+    public  WebElement myOrders;
     @FindBy(xpath = "/*[. ='My Wishlists']")
-     WebElement myWishLists;
+    public  WebElement myWishLists;
     @FindBy(xpath = "/*[. ='Checkout']")
-     WebElement checkout;
+    public  WebElement checkout;
     @FindBy(xpath = "/*[. ='Logout']")
-     WebElement logout;
+    public  WebElement logout;
 
 
 

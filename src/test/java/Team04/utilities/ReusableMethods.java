@@ -21,47 +21,47 @@ import java.util.Date;
 public class ReusableMethods {
 
 
-    public static void assertAssertTrue(String text, WebElement locator) {
+    public  void assertAssertTrue(String text, WebElement locator) {
         Assert.assertTrue(locator.getText().contains(text));
 
     }
 
-    public static void getTitle() {
+    public  void getTitle() {
         Driver.getDriver().getTitle();
     }
 
-    public static void sendKeysInfo(String key, WebElement locator) {
+    public void sendKeysInfo(String key, WebElement locator) {
 
         locator.sendKeys(key + Keys.ENTER);
     }
 
-    public static void pageControl(String expectedUrl, String actualUrl) {
+    public  void pageControl(String expectedUrl, String actualUrl) {
         Assert.assertEquals(expectedUrl, actualUrl);
 
     }
 
-    public static Select dropDown(WebElement locator) {
+    public  Select dropDown(WebElement locator) {
         Select select = new Select(locator);
 
         return select;
     }
 
-    public static void URLset(String url) {
+    public  void URLset(String url) {
         Driver.getDriver().get(url);
     }
 
-    public static void moveToElementHover(WebElement login) {
+    public  void moveToElementHover(WebElement login) {
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(login).perform();
 
     }
 
-    public static void yukleneneKadarBekle(WebElement webElement) {
+    public  void yukleneneKadarBekle(WebElement webElement) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(webElement)).click();
     }
 
-    public static void javaScriptExcecuter(WebElement element) {
+    public  void javaScriptExcecuter(WebElement element) {
 
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("arguments[0].click()", element);
