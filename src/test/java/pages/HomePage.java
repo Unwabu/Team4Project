@@ -117,5 +117,8 @@ public class HomePage {
 //public WebElement shopCategories;
 
 
+    //kontrol yorumu
+
+
 }
 
