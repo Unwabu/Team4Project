@@ -26,7 +26,7 @@ public void TC_001(){
 
 Driver.getDriver().get("https://shop-pickbazar-rest.vercel.app/");
 
-
+//kontrol yorumu
 
 }
 
