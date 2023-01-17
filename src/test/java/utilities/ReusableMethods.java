@@ -1,4 +1,4 @@
-package Team04.utilities;
+package utilities;
 
 import java.text.SimpleDateFormat;
 
@@ -21,47 +21,47 @@ import java.util.Date;
 public class ReusableMethods {
 
 
-    public  void assertAssertTrue(String text, WebElement locator) {
+    public static void assertAssertTrue(String text, WebElement locator) {
         Assert.assertTrue(locator.getText().contains(text));
 
     }
 
-    public  void getTitle() {
+    public static void getTitle() {
         Driver.getDriver().getTitle();
     }
 
-    public void sendKeysInfo(String key, WebElement locator) {
+    public static void sendKeysInfo(String key, WebElement locator) {
 
         locator.sendKeys(key + Keys.ENTER);
     }
 
-    public  void pageControl(String expectedUrl, String actualUrl) {
+    public static void pageControl(String expectedUrl, String actualUrl) {
         Assert.assertEquals(expectedUrl, actualUrl);
 
     }
 
-    public  Select dropDown(WebElement locator) {
+    public static   Select dropDown(WebElement locator) {
         Select select = new Select(locator);
 
         return select;
     }
 
-    public  void URLset(String url) {
+    public  static void URLset(String url) {
         Driver.getDriver().get(url);
     }
 
-    public  void moveToElementHover(WebElement login) {
+    public static   void moveToElementHover(WebElement login) {
         Actions actions = new Actions(Driver.getDriver());
         actions.moveToElement(login).perform();
 
     }
 
-    public  void yukleneneKadarBekle(WebElement webElement) {
+    public static void yukleneneKadarBekle(WebElement webElement) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(webElement)).click();
     }
 
-    public  void javaScriptExcecuter(WebElement element) {
+    public  static void javaScriptExcecuter(WebElement element) {
 
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("arguments[0].click()", element);
