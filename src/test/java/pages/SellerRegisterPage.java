@@ -1,19 +1,24 @@
 package pages;
 
+import com.github.dockerjava.api.model.Links;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utilities.Driver;
+
+import java.util.List;
 
 public class SellerRegisterPage {
-    WebDriver driver;
 
-    public SellerRegisterPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+
+    public SellerRegisterPage() {
+
+        PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(id = "name") ////input[@id='name']
+  //  @FindBy(xpath = "//input[@id='name']")
+    @FindBy(css = "input[name='name']")
     public WebElement nameBox;
 
     @FindBy(id = "email")
@@ -24,4 +29,11 @@ public class SellerRegisterPage {
 
     @FindBy(xpath = "//button[.='Register']")
     public WebElement registerButton;
+
+    @FindBy(xpath = "//h3[@class='mt-4 text-lg font-semibold text-heading']")
+    public WebElement saticiIsim;
+
+    @FindBy(linkText = "Login")
+    public WebElement loginButton;
+
 }
