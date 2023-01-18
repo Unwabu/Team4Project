@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class HomePage {
 
 
@@ -21,7 +23,8 @@ public class HomePage {
     @FindBy(id = "search")
     public WebElement searchBox;
 
-
+    @FindBy(xpath = "//input[@id='grocery search at header']")
+    public WebElement furnitureSearchButton;
     @FindBy(linkText = "Become a Seller")
     public WebElement becomeASellerButton;
 
@@ -38,19 +41,10 @@ public class HomePage {
     public WebElement indirimliFiyat;
     @FindBy(xpath = "//div[@class='rounded-full bg-yellow-500 px-3 text-xs font-semibold leading-6 text-light ltr:ml-auto rtl:mr-auto']")
     public WebElement indirimOrani;
-    @FindBy(xpath = "//img[@alt='Apples']")
-    public WebElement urunResmi;
-//    hp.urunResmi.click();
+
+//    hp.ilkUrunName.click();
 //    System.out.println(hp.indirimOrani.getText());
 
-    @FindBy(xpath = "//span[.='Add To Shopping Cart']")
-    public WebElement addCartButton;
-
-    @FindBy(xpath = "//span[@class='flex ltr:ml-2 rtl:mr-2']")
-    public WebElement itemCartButton;
-
-    @FindBy(xpath = "//span[.='plus']")
-    public WebElement plusButton;
 
     @FindBy(tagName = "h4")
     public WebElement noProductFoundTextInCart;
@@ -113,8 +107,10 @@ public class HomePage {
     @FindBy(xpath = "//span[@class='whitespace-nowrap'][1]")
     public WebElement shopCategories;
 
+
 // @FindBy(xpath="//div[@class='relative inline-block ltr:text-left rtl:text-right']")
 //public WebElement shopCategories;
+
 
 
 }

@@ -22,7 +22,11 @@ public class ReusableMethods {
 
 
     public static void assertAssertTrue(String text, WebElement locator) {
-        Assert.assertTrue(locator.getText().contains(text));
+        Assert.assertTrue(locator.getText().toLowerCase().contains(text.toLowerCase()));
+
+    }
+    public static void assertAssertFalse(String text, WebElement locator) {
+        Assert.assertFalse(locator.getText().toLowerCase().contains(text.toLowerCase()));
 
     }
 
