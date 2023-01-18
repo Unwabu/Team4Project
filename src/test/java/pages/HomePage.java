@@ -21,7 +21,6 @@ public class HomePage {
     @FindBy(id = "search")
     public WebElement searchBox;
 
-
     @FindBy(linkText = "Become a Seller")
     public WebElement becomeASellerButton;
 

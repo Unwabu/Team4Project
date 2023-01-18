@@ -89,5 +89,6 @@ public class ReusableMethods {
         return new SimpleDateFormat(pattern).format(new Date());
     }
 
+
 }
 
