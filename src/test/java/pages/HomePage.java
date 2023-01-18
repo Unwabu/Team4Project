@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -118,7 +119,6 @@ public class HomePage {
 
 
     //kontrol yorumu
-
 
 }
 
