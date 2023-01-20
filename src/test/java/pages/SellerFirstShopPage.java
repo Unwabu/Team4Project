@@ -15,7 +15,8 @@ public class SellerFirstShopPage {
 
 
 //@FindBy(css = "path[stroke-width='.8']")
-@FindBy(css = "svg[viewbox='0 0 26 28.026']")
+//@FindBy(css = "svg[viewbox='0 0 26 28.026']")
+@FindBy(xpath = "//*[text()='Products']")
     public WebElement productsButton;
 
 

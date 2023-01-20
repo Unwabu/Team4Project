@@ -14,7 +14,7 @@ public class SellerMyShopsPage {
     public WebElement myShopsText;
 
 
-    @FindBy(xpath = "//span[@class='mb-2 text-lg font-semibold text-heading']")
+    @FindBy(xpath = "//*[text()='simsim']")
     public WebElement myFirstShop;
 
 }
