@@ -31,6 +31,7 @@ public class US19_page {
     public List<WebElement> liste;
     @FindBy(xpath = "(//span[@class='text-sm font-semibold text-heading ltr:ml-3 rtl:mr-3'])[1]")
     public WebElement fishtikla;
+
     public void fish() {
         ReusableMethods.yukleneneKadarBekle(fishtikla);
         fishtikla.click();
