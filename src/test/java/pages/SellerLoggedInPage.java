@@ -23,7 +23,7 @@ public class SellerLoggedInPage {
     @FindBy(linkText = "Create Shop")
     public WebElement createShopButton;
 
-  @FindBy(xpath = "//a[@href='/my-shops']")
+    @FindBy(xpath = "//a[@href='/my-shops']")
     public WebElement myShopButton;
 
 }
