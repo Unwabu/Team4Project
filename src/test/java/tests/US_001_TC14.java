@@ -1,4 +1,4 @@
-package US_001;
+package tests;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.support.ui.ExpectedConditions;
