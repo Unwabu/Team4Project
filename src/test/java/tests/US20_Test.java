@@ -46,11 +46,6 @@ public class US20_Test extends TestBaseReports {
         actions.moveToElement(pg.vegetables).click().perform();
 
 
-
-
-        actions.moveToElement(pg.vegetables).click().perform();
-
-
         pg.addbuton.click();
 
 
@@ -61,11 +56,11 @@ public class US20_Test extends TestBaseReports {
 
 
         pg.checkAvailability.click();
+        ReusableMethods.waitForClickablility(pg.PlaceOrder);
+        ReusableMethods.javaScriptExcecuter(pg.PlaceOrder);
 
 
-        pg.PlaceOrder.click();
-
-        pg.Pay.click();
+        new Actions(Driver.getDriver()).click(pg.Pay).perform();
 
 
         Assert.assertTrue(pg.paymentSuccess.isDisplayed());
