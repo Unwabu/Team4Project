@@ -16,6 +16,7 @@ import java.io.IOException;
 
 import java.time.Duration;
 import java.util.Date;
+import java.util.Set;
 
 
 public class ReusableMethods {
@@ -70,6 +71,36 @@ public class ReusableMethods {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("arguments[0].click()", element);
     }
+
+    // Yunus Ekledi //
+    public static void waitForVisibility(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public static WebElement waitForClickablility(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(30));
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public static void waitForUrl(String url) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.urlToBe(url));
+    }
+
+    public static void waitForText(WebElement elementText, String  text) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.textToBePresentInElement(elementText, text));
+    }
+
+    public static void switchToNewWindow(Set<String> allWindowHandles, String homePageHandle) {
+        for (String each : allWindowHandles) {
+            if (!each.equals(homePageHandle)) {
+                Driver.getDriver().switchTo().window(each);
+            }
+        }
+    }
+    // ---- //
 
     public static String getScreenshot(WebDriver driver, String name) throws IOException {
 

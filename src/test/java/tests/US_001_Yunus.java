@@ -42,9 +42,9 @@ public class US_001_Yunus extends TestBaseReports {
 
         ReusableMethods.waitForUrl("https://admin-pickbazar-rest.vercel.app/login");
         sp.emailBox.clear();
-        sp.emailBox.sendKeys(ConfigReader.getProperty("saticiMail"));
+        sp.emailBox.sendKeys(ConfigReader.getProperty("simtenMail"));
         sp.passwordBox.clear();
-        sp.passwordBox.sendKeys(ConfigReader.getProperty("saticiPassword"));
+        sp.passwordBox.sendKeys(ConfigReader.getProperty("simtenPassword"));
         sp.login.click();
         extentTest.info("Satici Olarak Giris Yapildi");
 
@@ -99,9 +99,9 @@ public class US_001_Yunus extends TestBaseReports {
 
         ReusableMethods.waitForUrl("https://admin-pickbazar-rest.vercel.app/login");
         sp.emailBox.clear();
-        sp.emailBox.sendKeys(ConfigReader.getProperty("saticiMail"));
+        sp.emailBox.sendKeys(ConfigReader.getProperty("simtenMail"));
         sp.passwordBox.clear();
-        sp.passwordBox.sendKeys(ConfigReader.getProperty("saticiPassword"));
+        sp.passwordBox.sendKeys(ConfigReader.getProperty("simtenPassword"));
         sp.login.click();
         extentTest.info("Satici Olarak Giris Yapildi");
 
@@ -160,9 +160,9 @@ public class US_001_Yunus extends TestBaseReports {
         ReusableMethods.waitForUrl("https://admin-pickbazar-rest.vercel.app/login");
         ;
         sp.emailBox.clear();
-        sp.emailBox.sendKeys(ConfigReader.getProperty("saticiMail"));
+        sp.emailBox.sendKeys(ConfigReader.getProperty("simtenMail"));
         sp.passwordBox.clear();
-        sp.passwordBox.sendKeys(ConfigReader.getProperty("saticiPassword"));
+        sp.passwordBox.sendKeys(ConfigReader.getProperty("simtenPassword"));
         sp.login.click();
         extentTest.info("Satici Olarak Giris Yapildi");
 
@@ -225,9 +225,9 @@ public class US_001_Yunus extends TestBaseReports {
 
         ReusableMethods.waitForUrl("https://admin-pickbazar-rest.vercel.app/login");
         sp.emailBox.clear();
-        sp.emailBox.sendKeys(ConfigReader.getProperty("saticiMail"));
+        sp.emailBox.sendKeys(ConfigReader.getProperty("simtenMail"));
         sp.passwordBox.clear();
-        sp.passwordBox.sendKeys(ConfigReader.getProperty("saticiPassword"));
+        sp.passwordBox.sendKeys(ConfigReader.getProperty("simtenPassword"));
         sp.login.click();
         extentTest.info("Satici Olarak Giris Yapildi");
 
@@ -302,9 +302,9 @@ public class US_001_Yunus extends TestBaseReports {
 
         ReusableMethods.waitForUrl("https://admin-pickbazar-rest.vercel.app/login");
         sp.emailBox.clear();
-        sp.emailBox.sendKeys(ConfigReader.getProperty("saticiMail"));
+        sp.emailBox.sendKeys(ConfigReader.getProperty("simtenMail"));
         sp.passwordBox.clear();
-        sp.passwordBox.sendKeys(ConfigReader.getProperty("saticiPassword"));
+        sp.passwordBox.sendKeys(ConfigReader.getProperty("simtenPassword"));
         sp.login.click();
         extentTest.info("Satici Olarak Giris Yapildi");
 
