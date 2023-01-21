@@ -25,7 +25,7 @@ public class US_001_1 extends TestBaseReports {
 
     Faker faker = new Faker();
     HomePage hp = new HomePage();
-    SellerRegisterPage sp = new SellerRegisterPage();
+    SellerRegisterPage srp = new SellerRegisterPage();
     //  WebDriver driver = Driver.getDriver();
     SellerLoginPage sl = new SellerLoginPage();
     SellerLoggedInPage sli = new SellerLoggedInPage();
@@ -40,10 +40,14 @@ public class US_001_1 extends TestBaseReports {
     String simtenMail = ConfigReader.getProperty("simtenMail");
     String simtenPassword = ConfigReader.getProperty("simtenPassword");
 
+    SellerPageFinal sp = new SellerPageFinal();
 
     // @Test(dependsOnMethods = "TC_002")
     @Test
     public void TC_003() {
+        extentTest = extentReports.createTest("TC_003",
+                "satici magaza create edebilmeli ve magazalarını goruntuleyebilmeli");
+
         Driver.getDriver().get("https://shop-pickbazar-rest.vercel.app/");
         hp.becomeASellerButton.click();
         Set<String> allWindowHandles = Driver.getDriver().getWindowHandles();
@@ -56,7 +60,7 @@ public class US_001_1 extends TestBaseReports {
         Driver.getDriver().switchTo().window(secondWindowHandle);
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("register"));
         extentTest.info("register sayfasının görüntülendiği doğrulandı   ");
-        sp.loginButton.click();
+        srp.loginButton.click();
         ReusableMethods.yukleneneKadarBekle(sl.mailBox);
         wait.until(ExpectedConditions.urlToBe("https://admin-pickbazar-rest.vercel.app/login"));
         sl.mailBox.clear();
@@ -74,7 +78,6 @@ public class US_001_1 extends TestBaseReports {
         extentTest = extentReports.createTest("TC_003",
                 "satici magaza create edebilmeli ve magazalarını goruntuleyebilmeli");
         // WebDriver driver = Driver.getDriver();
-
 
 
         ReusableMethods.yukleneneKadarBekle(sli.createShopButton);
@@ -151,7 +154,7 @@ public class US_001_1 extends TestBaseReports {
         Driver.getDriver().switchTo().window(secondWindowHandle);
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("register"));
         extentTest.info("-register sayfasının görüntülendiği doğrulandı   ");
-        sp.loginButton.click();
+        srp.loginButton.click();
         wait.until(ExpectedConditions.urlToBe("https://admin-pickbazar-rest.vercel.app/register"));
 
 
@@ -274,7 +277,7 @@ public class US_001_1 extends TestBaseReports {
         Driver.getDriver().switchTo().window(secondWindowHandle);
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("register"));
         // extentTest.info("-register sayfasının görüntülendiği doğrulandı   ");
-        sp.loginButton.click();
+        srp.loginButton.click();
         wait.until(ExpectedConditions.urlToBe("https://admin-pickbazar-rest.vercel.app/register"));
 
 
@@ -300,7 +303,7 @@ public class US_001_1 extends TestBaseReports {
         spp.filterButton.click();
         ReusableMethods.yukleneneKadarBekle(spp.filterByGroupButton);
 
-      //  spp.filterByGroupButton.click();
+        //  spp.filterByGroupButton.click();
 
         actions.moveToElement(spp.filterByGroupButton).click().sendKeys(Keys.DOWN)
                 .sendKeys(Keys.DOWN)
@@ -322,26 +325,490 @@ public class US_001_1 extends TestBaseReports {
 
     }
 
+    @Test
+    public void task6() throws InterruptedException {
+        extentTest = extentReports.createTest("TC_006");
+        sp.goURL();
+        sp.Login();
+        sp.show_shops.click();
+        sp.WaitUntil(sp.dashboard);
+        sp.dashboard.click();
+        sp.WaitUntil(sp.products);
+        sp.groups.click();
+        sp.groups_add_group.click();
 
-    ////  @Test(dependsOnMethods = "TC_002")
-    //  @Test
-    //  public void TC_006(){
-    //    //  extentTest = extentReports.createTest("TC_006",
-    //         //     "satici product(urun)bilgisini duzenleyebilmeli ve silebilmelidir");
-    //      wait.until(ExpectedConditions.visibilityOfAllElements(sli.forWait,sli.productsButton) );
-    //      actions.moveToElement(sli.productsButton).click(sli.productsButton).perform();
-    //      spp.searchBox.sendKeys("urunum my product");
-    //      spp.searchSymbol.click();
-    //   //   extentTest.info("filtre sonucunda aranan ürün görüntülendi");
-    //      spp.editButton.click();
-    //      actions.click(scpp.quantity).sendKeys(Keys.UP).perform();
-    //      scpp.updateButton.click();
-    //      actions.moveToElement(sli.productsButton).click(sli.productsButton).perform();
+        String homePath = System.getProperty("user.home");
+        String productImg = "/IdeaProjects/Team4Project/src/test/java/resources/cover.jpg";
+        String productFeaturedImg = "/IdeaProjects/Team4Project/src/test/java/resources/logo.jpg";
+        String productImgFull = homePath + productImg;
+        String productFeaturedImgFull = homePath + productFeaturedImg;
+        actions.moveToElement(sp.groups_addBanner).click().perform();
+        sp.groups_SelectLoyout.forEach(s -> actions.moveToElement(s).click().perform());
+        sp.groups_SelectCard.forEach(s -> actions.moveToElement(s).click().perform());
+        sp.groups_img.sendKeys(productFeaturedImgFull);
+        sp.groups_information.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .keyDown(Keys.CLEAR)
+                .keyUp(Keys.CLEAR)
+                .sendKeys("12")
+                .perform());
+        sp.groups_addGroup_last.click();
 
 
-    //     // extentTest.pass("satici product(urun)bilgisini duzenleyebildi ve silebildi");
+        Assert.assertTrue(sp.groups_success.isDisplayed());
 
-    //  }
+
+        sp.groups_edit.click();
+
+        sp.groups_SelectLoyout.forEach(s -> actions.moveToElement(s).click().perform());
+        sp.groups_SelectCard.forEach(s -> actions.moveToElement(s).click().perform());
+        sp.groups_img.sendKeys(productImgFull);
+        sp.groups_information.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .keyDown(Keys.CLEAR)
+                .keyUp(Keys.CLEAR)
+                .sendKeys("12")
+                .perform());
+
+        actions.moveToElement(sp.groups_update).click().perform();
+
+
+        Assert.assertTrue(sp.groups_updated.isDisplayed());
+
+        Driver.getDriver().navigate().back();
+        sp.groups_cop.click();
+        sp.WaitUntil(sp.groups_delete);
+        sp.groups_delete.click();
+
+        Assert.assertFalse(sp.groups_delete.isDisplayed());
+
+        Driver.closeDriver();
+        extentTest.pass("TC_006 passed");
+    }
+
+    @Test
+    public void task7() throws InterruptedException {
+        extentTest = extentReports.createTest("TC_007");
+        sp.goURL();
+        sp.Login();
+        sp.categories.click();
+        sp.ctg_addCategories.click();
+
+
+        String homePath = System.getProperty("user.home");
+        String productImg = "/IdeaProjects/Team4Project/src/test/java/resources/cover.jpg";
+        String productFeaturedImg = "/IdeaProjects/Team4Project/src/test/java/resources/logo.jpg";
+        String productImgFull = homePath + productImg;
+        String productFeaturedImgFull = homePath + productFeaturedImg;
+        sp.ctg_img.sendKeys(productImgFull);
+        sp.ctg_information.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .keyDown(Keys.CLEAR)
+                .keyUp(Keys.CLEAR)
+                .sendKeys("12")
+                .perform());
+        sp.ctg_selectyout.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .keyDown(Keys.ARROW_DOWN)
+                .keyUp(Keys.ARROW_DOWN)
+                .keyDown(Keys.ENTER)
+                .keyUp(Keys.ENTER)
+                .perform());
+
+
+        Assert.assertTrue(sp.ctg_success.isDisplayed());
+
+
+        actions.moveToElement(sp.ctg_edit).click().perform();
+
+        sp.ctg_img.sendKeys(productFeaturedImgFull);
+        sp.ctg_information.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .keyDown(Keys.CLEAR)
+                .keyUp(Keys.CLEAR)
+                .sendKeys("12")
+                .perform());
+        sp.ctg_selectyout.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .keyDown(Keys.ARROW_DOWN)
+                .keyUp(Keys.ARROW_DOWN)
+                .keyDown(Keys.ENTER)
+                .keyUp(Keys.ENTER)
+                .perform());
+        actions.moveToElement(sp.ctg_update).click().perform();
+
+
+        Assert.assertTrue(sp.ctg_updated.isDisplayed());
+
+        Driver.getDriver().navigate().back();
+        Thread.sleep(3000);
+        sp.ctg_cop.click();
+        sp.groups_delete.click();
+        Assert.assertTrue(sp.ctg_deleted.isDisplayed());
+        Driver.closeDriver();
+        extentTest.pass("TC_007 passed");
+    }
+
+    @Test
+    public void task8() throws InterruptedException {
+        extentTest = extentReports.createTest("TC_008");
+        sp.goURL();
+        sp.Login();
+        sp.tag.click();
+
+        actions.moveToElement(sp.tag_addCategories).click().perform();
+
+
+        String homePath = System.getProperty("user.home");
+        String productImg = "/IdeaProjects/Team4Project/src/test/java/resources/cover.jpg";
+        String productFeaturedImg = "/IdeaProjects/Team4Project/src/test/java/resources/logo.jpg";
+        String productImgFull = homePath + productImg;
+        String productFeaturedImgFull = homePath + productFeaturedImg;
+        sp.tag_img.sendKeys(productImgFull);
+        sp.tag_information.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .keyDown(Keys.CLEAR)
+                .keyUp(Keys.CLEAR)
+                .sendKeys("12")
+                .perform());
+        sp.tag_select.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .keyDown(Keys.ARROW_DOWN)
+                .keyUp(Keys.ARROW_DOWN)
+                .keyDown(Keys.ENTER)
+                .keyUp(Keys.ENTER)
+                .pause(Duration.ofSeconds(2))
+                .perform());
+        actions.moveToElement(sp.tag_addTag).click().perform();
+
+        Assert.assertTrue(sp.tag_success.isDisplayed());
+
+        actions.moveToElement(sp.tag_edit).click().perform();
+
+        sp.tag_img.sendKeys(productFeaturedImgFull);
+        sp.tag_information.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .keyDown(Keys.CLEAR)
+                .keyUp(Keys.CLEAR)
+                .sendKeys("12")
+                .perform());
+        sp.tag_select.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .keyDown(Keys.ARROW_DOWN)
+                .keyUp(Keys.ARROW_DOWN)
+                .keyDown(Keys.ENTER)
+                .keyUp(Keys.ENTER)
+                .perform());
+        actions.moveToElement(sp.tag_updateTag).click().perform();
+
+        Assert.assertTrue(sp.tag_updated.isDisplayed());
+
+        Driver.getDriver().navigate().back();
+        actions.moveToElement(sp.tag_cop).click().perform();
+        actions.moveToElement(sp.tag_delete).click().perform();
+
+        Assert.assertFalse(sp.tag_deleted.isDisplayed());
+        extentTest.pass("TC_008 passed");
+
+    }
+
+
+    @Test
+    public void task9() throws InterruptedException {
+        extentTest = extentReports.createTest("TC_009");
+        sp.goURL();
+        sp.Login();
+        actions.moveToElement(sp.man_au).click().perform();
+        actions.moveToElement(sp.m_add_mp).click().perform();
+        actions.moveToElement(sp.m_social_add).click().perform();
+        String homePath = System.getProperty("user.home");
+        String productImg = "/IdeaProjects/Team4Project/src/test/java/resources/cover.jpg";
+        String productFeaturedImg = "/IdeaProjects/Team4Project/src/test/java/resources/logo.jpg";
+        String productImgFull = homePath + productImg;
+        String productFeaturedImgFull = homePath + productFeaturedImg;
+        sp.m_img.forEach(s -> s.sendKeys(productFeaturedImgFull));
+        sp.m_information.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .keyDown(Keys.CLEAR)
+                .keyUp(Keys.CLEAR)
+                .sendKeys("12")
+                .perform());
+
+        sp.m_select_group.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .click()
+                .pause(Duration.ofSeconds(2))
+                .keyDown(Keys.ARROW_DOWN)
+                .keyUp(Keys.ARROW_DOWN)
+                .keyDown(Keys.ENTER)
+                .keyUp(Keys.ENTER)
+                .perform());
+        actions.moveToElement(sp.m_add_mp_last).click().perform();
+        Assert.assertTrue(sp.m_success.isDisplayed());
+        actions.moveToElement(sp.m_edit).click().perform();
+        sp.m_img.forEach(s -> s.sendKeys(productImgFull));
+        sp.m_information.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .keyDown(Keys.CLEAR)
+                .keyUp(Keys.CLEAR)
+                .sendKeys("12")
+                .perform());
+
+        sp.m_select_group.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .pause(Duration.ofSeconds(2))
+                .keyDown(Keys.ARROW_DOWN)
+                .keyUp(Keys.ARROW_DOWN)
+                .keyDown(Keys.ENTER)
+                .keyUp(Keys.ENTER)
+                .perform());
+        actions.moveToElement(sp.m_add_mp_update).pause(Duration.ofSeconds(3)).click().perform();
+
+        Assert.assertTrue(sp.m_updated.isDisplayed());
+
+        Driver.getDriver().navigate().back();
+        actions.moveToElement(sp.m_cop).click().perform();
+        actions.moveToElement(sp.m_delete).click().perform();
+
+
+        Assert.assertTrue(sp.m_updated.isDisplayed());
+
+        actions.moveToElement(sp.m_aproval_btn).click().perform();
+
+        Assert.assertTrue(sp.m_aproval_chck.isDisplayed());
+        extentTest.pass("TC_009 passed");
+    }
+
+    @Test
+
+    public void task12() throws InterruptedException {
+        extentTest = extentReports.createTest("TC_012");
+        sp.goURL();
+        sp.Login();
+
+
+        actions.moveToElement(sp.create_order).click().perform();
+
+        sp.WaitUntil(sp.c_filter);
+        String a = sp.c_head.getText();
+        actions.moveToElement(sp.c_order_search)
+                .click()
+                .sendKeys(a)
+                .perform();
+        Assert.assertTrue(sp.c_head.getText().contains(a));
+
+
+        sp.c_filter.click();
+        Thread.sleep(5000);
+        sp.scfrom();
+
+        Thread.sleep(5000);
+
+        actions.moveToElement(sp.c_order_add).click().perform();
+
+        actions.moveToElement(sp.c_order_sepet).click().pause(Duration.ofSeconds(1)).perform();
+        actions.moveToElement(sp.c_order_checkout).pause(Duration.ofSeconds(1)).click().perform();
+        sp.WaitUntil(sp.c_add3);
+        sp.c_add3.click();
+        actions.moveToElement(sp.c_add3).click().perform();
+        actions.moveToElement(sp.c_select).click().keyDown(Keys.ARROW_DOWN).keyUp(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+        actions.moveToElement(sp.c_input).click().sendKeys("12345678").perform();
+        actions.moveToElement(sp.c_save).click().perform();
+
+        extentTest.pass("TC_012 passed");
+    }
+
+
+
+    @Test
+    public void task13() throws InterruptedException {
+        extentTest = extentReports.createTest("TC_013");
+        sp.goURL();
+
+        sp.Login();
+
+        actions.moveToElement(sp.user).click().perform();
+
+        actions.moveToElement(sp.costumer_add_costumer).click().perform();
+
+        sp.costumer_information.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .keyDown(Keys.CLEAR)
+                .keyUp(Keys.CLEAR)
+                .sendKeys("123")
+                .perform());
+        sp.WaitUntil(sp.costumer_email);
+        actions.moveToElement(sp.costumer_email).click()
+                .keyDown(Keys.CLEAR)
+                .keyUp(Keys.CLEAR)
+                .sendKeys(faker.name().firstName() + "@gmail.com").pause(Duration.ofSeconds(2)).perform();
+        sp.costumer_last.click();
+        Driver.getDriver().navigate().back();
+        Thread.sleep(3000);
+        Assert.assertTrue(sp.costumer_name.getText().contains("123"));
+        extentTest.pass("TC_013 passed");
+    }
+
+    @Test
+    public void task15() throws InterruptedException {
+        extentTest = extentReports.createTest("TC_015");
+        sp.goURL();
+        sp.Login();
+        sp.coupons.click();
+
+        sp.coupons_add_coupon.click();
+
+        String homePath = System.getProperty("user.home");
+        String productImg = "/IdeaProjects/Team4Project/src/test/java/resources/cover.jpg";
+        String productFeaturedImg = "/IdeaProjects/Team4Project/src/test/java/resources/logo.jpg";
+        String productImgFull = homePath + productImg;
+        String productFeaturedImgFull = homePath + productFeaturedImg;
+        sp.coupons_img.sendKeys(productImgFull);
+        sp.coupons_information.forEach(s -> actions.moveToElement(s).click().sendKeys("123").perform());
+        actions.moveToElement(sp.coupons_add_coupon_last).click().perform();
+
+        Assert.assertTrue(sp.coupons_success.isDisplayed());
+
+        actions.moveToElement(sp.coupons_search).click().sendKeys("123").perform();
+        Assert.assertTrue(sp.coupons_name.getText().contains("123"));
+
+        Driver.getDriver().navigate().back();
+        sp.coupons_edit.click();
+
+        sp.coupons_img.sendKeys(productFeaturedImgFull);
+        sp.coupons_information.forEach(s -> actions.moveToElement(s).click().sendKeys("123").perform());
+        actions.moveToElement(sp.coupons_update_c).perform();
+
+        Assert.assertTrue(sp.tax_update.isDisplayed());
+
+        Driver.getDriver().navigate().back();
+        sp.coupons_cop.click();
+
+        sp.coupons_cancel.click();
+        Assert.assertFalse(sp.coupons_d_m.isDisplayed());
+        sp.coupons_delete.click();
+        Assert.assertTrue(sp.coupons_d_m.isDisplayed());
+        extentTest.pass("TC_015 passed");
+
+    }
+
+
+
+    @Test
+    public void task16() throws InterruptedException {
+        extentTest = extentReports.createTest("TC_016");
+        sp.goURL();
+        sp.Login();
+        sp.taxes.click();
+        sp.coupons_add_tax.click();
+
+        sp.tax_information.forEach(s -> actions.moveToElement(s).click().sendKeys("123").perform());
+        actions.moveToElement(sp.tax_add_coupon_last).click().perform();
+
+        Assert.assertTrue(sp.coupons_success.isDisplayed());
+
+        actions.moveToElement(sp.coupons_search).click().sendKeys("123").perform();
+        Assert.assertTrue(sp.coupons_name.getText().contains("123"));
+
+        sp.coupons_edit.click();
+
+        sp.tax_information.forEach(s -> actions.moveToElement(s).click().sendKeys("123").perform());
+        sp.WaitUntil(sp.tax_update_c);
+        sp.tax_update_c.click();
+
+        Thread.sleep(3000);
+        Assert.assertTrue(sp.tax_update.isDisplayed());
+
+        Driver.getDriver().navigate().back();
+        sp.coupons_cop.click();
+
+        sp.coupons_cancel.click();
+        Thread.sleep(3000);
+        sp.coupons_cop.click();
+
+        sp.coupons_delete.click();
+        Thread.sleep(3000);
+        Assert.assertTrue(sp.coupons_d_m.isDisplayed());
+        extentTest.pass("TC_016 passed");
+
+    }
+    @Test
+    public void task17() throws InterruptedException {
+        extentTest = extentReports.createTest("TC_017");
+        sp.goURL();
+        sp.Login();
+        sp.shipping.click();
+        sp.shp_add.click();
+        sp.shp_information.forEach(s -> actions.moveToElement(s).click().sendKeys("123").perform());
+        sp.shp_type.forEach(s -> actions
+                .moveToElement(s)
+                .click()
+                .perform());
+        sp.shp_add2.click();
+        Assert.assertTrue(sp.coupons_success.isDisplayed());
+        sp.products_search.sendKeys("123" + Keys.ENTER);
+        Assert.assertTrue(sp.shp_check.getText().contains("123"));
+        extentTest.pass("TC_017 passed");
+
+
+
+    }
+
+    @Test
+
+    public void task18() throws InterruptedException {
+        extentTest = extentReports.createTest("TC_018");
+        sp.goURL();
+        sp.Login();
+        sp.questions.click();
+        sp.WaitUntil(sp.question_show);
+        Assert.assertTrue(sp.question_show.isDisplayed());
+        sp.question_edit.click();
+        sp.box.sendKeys("123");
+        sp.costumer_reply.click();
+        Assert.assertTrue(sp.product_success.isDisplayed());
+
+        sp.question_cop.click();
+        sp.question_cancel.click();
+
+        //10-Kullanıcı işlemi onaylar ve yorumun silindiğini onaylar.
+        Thread.sleep(5000);
+        sp.question_cop.click();
+        sp.question_delete.click();
+        sp.WaitUntil(sp.deleted_1);
+        Assert.assertTrue(sp.deleted_1.isDisplayed());
+        extentTest.pass("TC_018 passed");
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
