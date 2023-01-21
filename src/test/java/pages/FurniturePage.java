@@ -46,6 +46,15 @@ public class FurniturePage {
     public WebElement plusButton;
     @FindBy(xpath = "(//button[@class='cursor-pointer p-2 transition-colors duration-200 hover:bg-accent-hover focus:outline-none hover:!bg-gray-100'])[2]")
     public WebElement plusButtonCart;
-
+    @FindBy(xpath = "(//button[@class='cursor-pointer p-2 transition-colors duration-200 hover:bg-accent-hover focus:outline-none px-5'])[1]")
+    public WebElement minusButton;
+    @FindBy(xpath = "(//button[@class='cursor-pointer p-2 transition-colors duration-200 hover:bg-accent-hover focus:outline-none hover:!bg-gray-100'])[1]")
+    public WebElement minusButtonCart;
+    @FindBy(xpath = "(//span[text()='close'])[2]")
+    public WebElement xRemoveButton;
+    @FindBy(xpath = "//p[@class='my-2.5 font-semibold text-accent']")
+    public WebElement productPriceText;
+    @FindBy(xpath = "//span[@class='font-bold text-heading ltr:ml-auto rtl:mr-auto']")
+    public WebElement totalPriceText;
 
 }
