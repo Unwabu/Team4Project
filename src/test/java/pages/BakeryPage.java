@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BakeryPage {
@@ -30,6 +31,15 @@ public class BakeryPage {
     @FindBy(xpath ="//span[text()='Next']")// "//img[@alt='Soft Bread']")
     public WebElement btnNext;
 
+    @FindBy(xpath = "//div[@class='mb-2 flex items-center']\n")
+    public List<WebElement> products = new ArrayList<>();
+
+
+    @FindBy(xpath = "//ins[@class='text-2xl font-semibold text-accent no-underline md:text-3xl']")
+    public WebElement indirimliFiyat;
+
+    @FindBy(xpath = "//del[@class='text-sm font-normal text-muted ltr:ml-2 rtl:mr-2 md:text-base']")
+    public WebElement indirimsizFiyat;
 
 
 
