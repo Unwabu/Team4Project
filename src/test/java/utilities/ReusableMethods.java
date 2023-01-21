@@ -124,6 +124,14 @@ public class ReusableMethods {
         return new SimpleDateFormat(pattern).format(new Date());
     }
 
+    //simten ekledi
+    public static void dataSend(WebElement element,String Keys1){
+        element.sendKeys(Keys1+ Keys.ENTER);
+    }
+
+    public static void linkKontrolEt(String ara){
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(ara));
+    }
 
 }
 
