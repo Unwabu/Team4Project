@@ -61,7 +61,7 @@ import java.util.List;
         public WebElement checkAvailability;
 
 
-        @FindBy(xpath = "//button[@data-variant='normal']")
+        @FindBy(xpath = "//*[text()='Place Order']")
         public WebElement PlaceOrder;
 
 
