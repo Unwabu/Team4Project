@@ -79,17 +79,18 @@ public WebElement createShopText;
     public WebElement logoUpload;
 
 
-    @FindBy(xpath = "(//section[@class='upload']//input)[2]")
+    @FindBy(xpath = "(//input[@accept='image/*'][@type='file'])[2]")
     public WebElement coverImgUpload;
 
 
-@FindBy(xpath = "//input[@accept='image/*'][@type='file']")
+@FindBy(xpath = "(//input[@accept='image/*'][@type='file'])[1]")
     public WebElement logoButton;
 
-@FindBy(xpath = "//img[@alt='upload placeholder']")
+//@FindBy(xpath = "//img[@alt='upload placeholder']")
+@FindBy(css = "img[alt=\"logo\"]")
     public WebElement logoImgUploadedIcon;
 
-@FindBy(xpath = "(//img[@alt='upload placeholder'])[2]")
+@FindBy(xpath = "img[alt=\"cover\"]")
     public WebElement coverImgUploadedIcon;
 
     @FindBy(css = "img[alt=\"avatar\"]")

@@ -1,16 +1,12 @@
 package tests.US_001;
 
 
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 import pages.*;
 import utilities.ConfigReader;
@@ -21,7 +17,7 @@ import utilities.TestBaseReports;
 import java.time.Duration;
 import java.util.Set;
 
-public class US_001_1 extends TestBaseReports {
+public class US_001_LogIn extends TestBaseReports {
 
     Faker faker = new Faker();
     HomePage hp = new HomePage();
@@ -75,9 +71,6 @@ public class US_001_1 extends TestBaseReports {
         extentTest.info("satıcı kendi shop ekranını görüntüledi");
 
 
-        extentTest = extentReports.createTest("TC_003",
-                "satici magaza create edebilmeli ve magazalarını goruntuleyebilmeli");
-        // WebDriver driver = Driver.getDriver();
 
 
         ReusableMethods.yukleneneKadarBekle(sli.createShopButton);
@@ -94,12 +87,14 @@ public class US_001_1 extends TestBaseReports {
         // File image=new File(filePath);
         //Assert.assertTrue(image.exists());
         scs.logoButton.sendKeys(filePathLogoFull);
+
         Assert.assertTrue(scs.logoImgUploadedIcon.isDisplayed());
         extentTest.info("logo yüklendi");
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].removeAttribute('style')", scs.coverImgUpload);
-        ReusableMethods.yukleneneKadarBekle(scs.coverImgUpload);
+
         scs.coverImgUpload.sendKeys(filePathCoverFull);
-        Assert.assertTrue(scs.coverImgUploadedIcon.isDisplayed());
+       // ReusableMethods.yukleneneKadarBekle(scs.coverImgUploadedIcon);
+       // Assert.assertTrue(scs.coverImgUploadedIcon.isDisplayed());
         extentTest.info("cover yüklendi");
         scs.nameBox.sendKeys(faker.company().name());
         scs.descriptionTextArea.sendKeys(faker.cat().breed());

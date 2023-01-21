@@ -2,18 +2,15 @@ package tests.US_001;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
 import utilities.Driver;
 import utilities.TestBaseReports;
 
-import java.time.Duration;
 import java.util.Set;
 
-public class US_001_2  extends TestBaseReports {
+public class US_001_SignIn extends TestBaseReports {
     Faker faker = new Faker();
     HomePage hp = new HomePage();
     SellerRegisterPage sp = new SellerRegisterPage();
