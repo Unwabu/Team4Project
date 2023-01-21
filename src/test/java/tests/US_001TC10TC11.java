@@ -17,7 +17,7 @@ import utilities.TestBaseReports;
 import java.time.Duration;
 import java.util.Set;
 
-public class US_001TC10TC11 extends TestBaseReports {
+public class US_001TC10TC11 /*extends TestBaseReports*/ {
 
     Faker faker = new Faker();
     HomePage hp = new HomePage();
@@ -32,12 +32,12 @@ public class US_001TC10TC11 extends TestBaseReports {
     public void TC_002() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         driver.get("https://shop-pickbazar-rest.vercel.app/");
+
         String simtenMail = ConfigReader.getProperty("simtenMail");
         String simtenPassword = ConfigReader.getProperty("simtenPassword");
         String firstPageHandle = driver.getWindowHandle();
-
         hp.becomeASellerButton.click();
-
+        Thread.sleep(3000);
         Set<String> allWindowHandles = driver.getWindowHandles();
 
         String secondWindowHandle = "";
@@ -49,6 +49,7 @@ public class US_001TC10TC11 extends TestBaseReports {
         }
         driver.switchTo().window(secondWindowHandle);
         Assert.assertTrue(driver.getCurrentUrl().contains("register"));
+
         sp.loginButton.click();
         Thread.sleep(5000);
 
@@ -65,11 +66,10 @@ public class US_001TC10TC11 extends TestBaseReports {
     @Test(dependsOnMethods = "TC_002",
             groups ={"smoke", "regression"})
     public void TC_010() throws InterruptedException {
-        extentTest = extentReports.createTest("US01_TC10", "satici Manufacturers/Publications bolumunde ekleme yapabilmeli ve onay islemini gerceklesirebilmelidir");
+    //    extentTest = extentReports.createTest("US01_TC10", "satici Manufacturers/Publications bolumunde ekleme yapabilmeli ve onay islemini gerceklesirebilmelidir");
 
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-        Thread.sleep(3000);
-        extentTest.info("Kullanıcı satıcı olarak siteye giriş yaptı");
+    //    extentTest.info("Kullanıcı satıcı olarak siteye giriş yaptı");
 
         mPup.manufacturersPublicationsButton.click();
         ReusableMethods.yukleneneKadarBekle(mPup.addManuPubButton);
@@ -85,7 +85,7 @@ public class US_001TC10TC11 extends TestBaseReports {
         wait.until(ExpectedConditions.visibilityOf(mPup.firstManuPubInfo));
         System.out.println("fistManuPubInfo = "+mPup.firstManuPubInfo.getText());
         ReusableMethods.assertAssertTrue(metin, mPup.firstManuPubInfo);
-        extentTest.pass("satici Manufacturers/Publications bolumunde ekleme yapabildiğini doğruladı");
+     //   extentTest.pass("satici Manufacturers/Publications bolumunde ekleme yapabildiğini doğruladı");
 
         if (mPup.enabledButton.isDisplayed()){
             Assert.assertTrue(mPup.enabledButton.isDisplayed());
@@ -94,17 +94,18 @@ public class US_001TC10TC11 extends TestBaseReports {
             Thread.sleep(3000);
             Assert.assertTrue(mPup.enabledButton.isDisplayed());
         }
-        extentTest.pass("satici Manufacturers/Publications bolumunde onaylama yapabildiğini doğruladı");
+    //    extentTest.pass("satici Manufacturers/Publications bolumunde onaylama yapabildiğini doğruladı");
+
+        Driver.closeDriver();
 
     }
     @Test(dependsOnMethods = "TC_002",
             groups = "regression")
     public void TC_011() throws InterruptedException {
-        extentTest = extentReports.createTest("US01_TC11", "satici Author bolumunde yazar ekleme, onay, düzenleme ve silme islemlerini gerceklesirebilmelidir");
+    //    extentTest = extentReports.createTest("US01_TC11", "satici Author bolumunde yazar ekleme, onay, düzenleme ve silme islemlerini gerceklesirebilmelidir");
 
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
-        Thread.sleep(3000);
-        extentTest.info("Kullanıcı satıcı olarak siteye giriş yaptı");
+     //   extentTest.info("Kullanıcı satıcı olarak siteye giriş yaptı");
 
         ReusableMethods.yukleneneKadarBekle(auth.authorsButton);
         ReusableMethods.yukleneneKadarBekle(auth.addAuthorsButton);
@@ -119,10 +120,9 @@ public class US_001TC10TC11 extends TestBaseReports {
         act.moveToElement(auth.bornBox).click().sendKeys(faker.date().birthday().toString()+Keys.ENTER).perform();
         act.moveToElement(auth.deathBox).click().sendKeys(faker.date().toString()+Keys.ENTER).perform();
         ReusableMethods.yukleneneKadarBekle(auth.addAuthorsBox);
-        wait.until(ExpectedConditions.visibilityOf(auth.firstAuthorInfo));
-        System.out.println("fistManuPubInfo = "+auth.firstAuthorInfo.getText());
+        System.out.println("fisrstAuthorInfo = "+auth.firstAuthorInfo.getText());
         ReusableMethods.assertAssertTrue(metin, auth.firstAuthorInfo);
-        extentTest.pass("satici Author bolumunde yazar ekleme yapabildiğini doğruladı");
+    //    extentTest.pass("satici Author bolumunde yazar ekleme yapabildiğini doğruladı");
 
         if (auth.enabledButton.isDisplayed()){
             Assert.assertTrue(auth.enabledButton.isDisplayed());
@@ -131,8 +131,8 @@ public class US_001TC10TC11 extends TestBaseReports {
             Thread.sleep(3000);
             Assert.assertTrue(auth.enabledButton.isDisplayed());
         }
-        extentTest.pass("satici Author bolumunde yazar onaylama yapabildiğini doğruladı");
-
+    //    extentTest.pass("satici Author bolumunde yazar onaylama yapabildiğini doğruladı");
+        Thread.sleep(3000); //Paralel test için
         auth.editButton.click();
         wait.until(ExpectedConditions.visibilityOf(auth.nameBox));
         String metin2 = "Lanet Gele Nalet...!!!";
@@ -140,17 +140,17 @@ public class US_001TC10TC11 extends TestBaseReports {
         auth.nameBox.sendKeys(metin2);
         auth.updateAuthorsBox.click();
         ReusableMethods.yukleneneKadarBekle(auth.backBox);
-        wait.until(ExpectedConditions.visibilityOf(auth.firstAuthorInfo));
-        System.out.println("fistManuPubInfo = "+auth.firstAuthorInfo.getText());
+        System.out.println("firstAuthorInfo = "+auth.firstAuthorInfo.getText());
         ReusableMethods.assertAssertTrue(metin2, auth.firstAuthorInfo);
-        extentTest.pass("satici Author bolumunde düzenleme yapabildiğini doğruladı");
+    //    extentTest.pass("satici Author bolumunde düzenleme yapabildiğini doğruladı");
 
         auth.deleteButton.click();
         ReusableMethods.yukleneneKadarBekle(auth.deleteBox);
-        wait.until(ExpectedConditions.visibilityOf(auth.firstAuthorInfo));
-        System.out.println("fistManuPubInfo = "+auth.firstAuthorInfo.getText());
+        System.out.println("firstAuthorInfo = "+auth.firstAuthorInfo.getText());
         ReusableMethods.assertAssertFalse(metin2, auth.firstAuthorInfo);
-        extentTest.pass("satici Author bolumunde yazar silme işlemini yapabildiğini doğruladı");
+    //    extentTest.pass("satici Author bolumunde yazar silme işlemini yapabildiğini doğruladı");
+
+        Driver.closeDriver();
 
     }
 }

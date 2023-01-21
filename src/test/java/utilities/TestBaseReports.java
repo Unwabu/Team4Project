@@ -44,7 +44,7 @@ public class TestBaseReports {
         extentHtmlReporter.config().setDocumentTitle("Son Test " + new SimpleDateFormat("dd.MM.yyyy_HH.mm.ss").format(new Date()));//test doc uzerinde tarih yazili olacak
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void teardown(ITestResult result) throws IOException {
 
         if (result.getStatus() == ITestResult.FAILURE) { // Testimiz fail olursa if block calisacak ve screenshot alacak.

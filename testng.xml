@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/samet/IdeaProjects/Team4Project">
+        <classes>
+            <class name="pages.SellerPageFinal">
+                <methods>
+                    <include name="coupon_try"/>
+                </methods>
+            </class>
+            <class name="tests.US19_Test">
+                <methods>
+                    <include name="test"/>
+                </methods>
+            </class>
+            <class name="tests.US20_Test">
+                <methods>
+                    <include name="test"/>
+                </methods>
+            </class>
+            <class name="tests.US_001TC10TC11">
+                <methods>
+                    <include name="TC_011"/>
+                </methods>
+            </class>
+            <class name="tests.US_001.US_001_LogIn">
+                <methods>
+                    <include name="TC_003"/>
+                    <include name="TC_004"/>
+                    <include name="TC_005"/>
+                    <include name="task6"/>
+                    <include name="task7"/>
+                    <include name="task8"/>
+                    <include name="task9"/>
+                    <include name="task12"/>
+                    <include name="task13"/>
+                    <include name="task15"/>
+                    <include name="task16"/>
+                    <include name="task17"/>
+                    <include name="task18"/>
+                </methods>
+            </class>
+            <class name="tests.US_001.US_001_SignIn">
+                <methods>
+                    <include name="TC_001"/>
+                </methods>
+            </class>
+            <class name="tests.US_001_TC14">
+                <methods>
+                    <include name="testCase_14"/>
+                </methods>
+            </class>
+            <class name="tests.US_001_Yunus">
+                <methods>
+                    <include name="TC_019"/>
+                    <include name="TC_020"/>
+                    <include name="TC_021"/>
+                    <include name="TC_022"/>
+                    <include name="TC_023"/>
+                </methods>
+            </class>
+            <class name="tests.US_003">
+                <methods>
+                    <include name="testCase_01"/>
+                    <include name="testCase_02"/>
+                </methods>
+            </class>
+            <class name="tests.US_006_KullaniciLogin">
+                <methods>
+                    <include name="TC_001_validEmailPasswordLoginPozitifTest"/>
+                    <include name="TC_002_003_004_NegatifLoginTestleri"/>
+                </methods>
+            </class>
+            <class name="tests.US_006_KullaniciMenu">
+                <methods>
+                    <include name="TC_005_KullaniciMenusunuGoruntulemeTesti"/>
+                    <include name="TC_006_PointsGoruntulemeTesti"/>
+                    <include name="TC_007_ProfileTesti"/>
+                    <include name="TC_008_MyOrdersTest"/>
+                    <include name="TC_009_MyWishlistsTesti"/>
+                    <include name="TC_010_CheckoutTesti"/>
+                    <include name="TC_011_LogoutTesti"/>
+                </methods>
+            </class>
+            <class name="tests.US_007">
+                <methods>
+                    <include name="testCase01"/>
+                    <include name="testCase02"/>
+                    <include name="testCase03"/>
+                    <include name="testCase04"/>
+                    <include name="testCase05"/>
+                </methods>
+            </class>
+            <class name="tests.US_008">
+                <methods>
+                    <include name="testCase_01"/>
+                    <include name="testCase_02"/>
+                    <include name="testCase_03"/>
+                    <include name="testCase_04"/>
+                    <include name="testCase_05"/>
+                    <include name="testCase_06"/>
+                    <include name="testCase_07"/>
+                </methods>
+            </class>
+            <class name="tests.US_014">
+                <methods>
+                    <include name="TC_01"/>
+                    <include name="TC_02"/>
+                </methods>
+            </class>
+            <class name="tests.US_015">
+                <methods>
+                    <include name="TC_01"/>
+                    <include name="TC_02"/>
+                </methods>
+            </class>
+            <class name="tests.US_022">
+                <methods>
+                    <include name="TC_001"/>
+                </methods>
+            </class>
+            <class name="tests.US_029">
+                <methods>
+                    <include name="testCase01"/>
+                </methods>
+            </class>
+            <class name="tests.US_031">
+                <methods>
+                    <include name="TC_001"/>
+                    <include name="TC_002"/>
+                    <include name="TC_003"/>
+                </methods>
+            </class>
+            <class name="tests.US_032">
+                <methods>
+                    <include name="testCase_01"/>
+                    <include name="testCase_02"/>
+                </methods>
+            </class>
+            <class name="tests.US_034">
+                <methods>
+                    <include name="TC_001"/>
+                </methods>
+            </class>
+            <class name="tests.US_035_1">
+                <methods>
+                    <include name="TC_001_SearchBoxUrunAratmaPozitifTesti"/>
+                    <include name="TC_002_SearchBoxUrunAratmaNegativeTest"/>
+                </methods>
+            </class>
+            <class name="tests.US_035_2">
+                <methods>
+                    <include name="TC_003_ShirtsFiltreTesti"/>
+                    <include name="TC_004_TopsFiltreTesti"/>
+                    <include name="TC_005_ChinosFiltreTesti"/>
+                    <include name="TC_006_JacketFiltreTesti"/>
+                    <include name="TC_007_PrintedFiltreTesti"/>
+                </methods>
+            </class>
+            <class name="tests.US_11">
+                <methods>
+                    <include name="loginTest"/>
+                    <include name="anasayfadaUrunmiktariTest"/>
+                    <include name="spturunmiktariTest"/>
+                </methods>
+            </class>
+            <class name="tests.US_28">
+                <methods>
+                    <include name="loginTest"/>
+                    <include name="IlkFiat"/>
+                    <include name="indirimliFiat"/>
+                    <include name="indirimOrani"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
