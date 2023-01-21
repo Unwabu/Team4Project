@@ -1,4 +1,4 @@
-package tests;
+package US_001;
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,7 +22,7 @@ public class US_001_TC14 extends TestBaseReports {
     HomePage hp = new HomePage();
     SellerLoggedInPageS slip = new SellerLoggedInPageS();
     SellerLoginPage firstSlip = new SellerLoginPage();
-    SellerRegisterPage srp = new SellerRegisterPage(Driver.getDriver());
+    SellerRegisterPage srp = new SellerRegisterPage();
     UserCreatePage ucp = new UserCreatePage();
     UsersPage up = new UsersPage();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
@@ -66,7 +66,7 @@ public class US_001_TC14 extends TestBaseReports {
         //3-Users ekranına geçer ve doğrular
         slip.users.click();
         wait.until(ExpectedConditions.urlToBe("https://admin-pickbazar-rest.vercel.app/users"));
-        ReusableMethods.checkUrl("users");
+        ReusableMethods.linkKontrolEt("users");
         extentTest.info("Urlde users geçip geçmediği doğrulandı.");
 
         //4-add customer butonuna tıklar

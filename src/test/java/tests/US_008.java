@@ -36,7 +36,7 @@ public class US_008 extends TestBaseReports {
         wait.until(ExpectedConditions.urlToBe("https://shop-pickbazar-rest.vercel.app/grocery"));
 
         //4. Kullanıcı urlde Grocery geçip geçmediğini doğrular.
-        ReusableMethods.checkUrl("grocery");
+        ReusableMethods.linkKontrolEt("grocery");
         extentTest.info("Urlde Grocery geçip geçmediği doğrulandı.");
 
         extentTest.pass("Kullanıcı ürün kategorilerini belirleyebildi");
@@ -52,7 +52,7 @@ public class US_008 extends TestBaseReports {
         wait.until(ExpectedConditions.urlToBe("https://shop-pickbazar-rest.vercel.app/bakery"));
 
         //4. Kullanıcı urlde Bakery geçip geçmediğini doğrular.
-        ReusableMethods.checkUrl("bakery");
+        ReusableMethods.linkKontrolEt("bakery");
         extentTest.info("Urlde Bakery geçip geçmediği doğrulandı.");
         extentTest.pass("Kullanıcı ürün kategorilerini belirleyebildi");
 
@@ -69,7 +69,7 @@ public class US_008 extends TestBaseReports {
         wait.until(ExpectedConditions.urlToBe("https://shop-pickbazar-rest.vercel.app/makeup"));
 
         //4. Kullanıcı urlde Make Up geçip geçmediğini doğrular.
-        ReusableMethods.checkUrl("makeup");
+        ReusableMethods.linkKontrolEt("makeup");
         extentTest.info("Urlde Make Up geçip geçmediği doğrulandı.");
         extentTest.pass("Kullanıcı ürün kategorilerini belirleyebildi");
 
@@ -85,7 +85,7 @@ public class US_008 extends TestBaseReports {
         wait.until(ExpectedConditions.urlToBe("https://shop-pickbazar-rest.vercel.app/bags"));
 
         //4. Kullanıcı urlde Bags geçip geçmediğini doğrular.
-        ReusableMethods.checkUrl("bags");
+        ReusableMethods.linkKontrolEt("bags");
         extentTest.info("Urlde Bags geçip geçmediği doğrulandı.");
         extentTest.pass("Kullanıcı ürün kategorilerini belirleyebildi");
 
@@ -102,7 +102,7 @@ public class US_008 extends TestBaseReports {
         wait.until(ExpectedConditions.urlToBe("https://shop-pickbazar-rest.vercel.app/clothing"));
 
         //4. Kullanıcı urlde Clothing geçip geçmediğini doğrular.
-        ReusableMethods.checkUrl("clothing");
+        ReusableMethods.linkKontrolEt("clothing");
         extentTest.info("Urlde Clothing geçip geçmediği doğrulandı.");
         extentTest.pass("Kullanıcı ürün kategorilerini belirleyebildi");
 
@@ -119,7 +119,7 @@ public class US_008 extends TestBaseReports {
         wait.until(ExpectedConditions.urlToBe("https://shop-pickbazar-rest.vercel.app/furniture"));
 
         //4. Kullanıcı urlde Furnitue geçip geçmediğini doğrular.
-        ReusableMethods.checkUrl("furniture");
+        ReusableMethods.linkKontrolEt("furniture");
         extentTest.info("Urlde Furniture geçip geçmediği doğrulandı.");
         extentTest.pass("Kullanıcı ürün kategorilerini belirleyebildi");
 
@@ -136,7 +136,7 @@ public class US_008 extends TestBaseReports {
         wait.until(ExpectedConditions.urlToBe("https://shop-pickbazar-rest.vercel.app/daily-needs"));
 
         //4. Kullanıcı urlde Daily Needs geçip geçmediğini doğrular.
-        ReusableMethods.checkUrl("daily-needs");
+        ReusableMethods.linkKontrolEt("daily-needs");
         extentTest.info("Urlde Daily Needs geçip geçmediği doğrulandı.");
         extentTest.pass("Kullanıcı ürün kategorilerini belirleyebildi");
 
